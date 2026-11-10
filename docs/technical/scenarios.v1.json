@@ -1,0 +1,809 @@
+{
+  "schema_version": "1.0",
+  "scenarios": [
+    {
+      "scenario_id": "8.1",
+      "title": "Cảnh báo mực nước",
+      "grade": 8,
+      "versions": {
+        "content": "v1",
+        "rules": "v1",
+        "dataset": "v1"
+      },
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "threshold_cm": {
+            "type": "integer",
+            "enum": [
+              50,
+              60,
+              70,
+              80
+            ]
+          }
+        },
+        "required": [
+          "threshold_cm"
+        ],
+        "additionalProperties": false
+      },
+      "result_schema": {
+        "type": "object",
+        "properties": {
+          "datasets": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "properties": {
+                "dataset_id": {
+                  "type": "string",
+                  "enum": [
+                    "A",
+                    "B"
+                  ]
+                },
+                "alert_minute": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "hazard_minute": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "lead_minutes": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "classification": {
+                  "type": "string",
+                  "enum": [
+                    "EARLY",
+                    "AT_HAZARD",
+                    "LATE",
+                    "MISSED",
+                    "FALSE_ALERT",
+                    "CLEAR"
+                  ]
+                }
+              },
+              "required": [
+                "dataset_id",
+                "alert_minute",
+                "hazard_minute",
+                "lead_minutes",
+                "classification"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "datasets"
+        ],
+        "additionalProperties": false
+      },
+      "data": {
+        "series": {
+          "A": [
+            30,
+            40,
+            55,
+            65,
+            75,
+            85
+          ],
+          "B": [
+            30,
+            55,
+            60,
+            40,
+            35,
+            30
+          ]
+        },
+        "sample_interval_minutes": 1,
+        "hazard_level_cm": 80,
+        "consecutive_readings": 2,
+        "alert_latched": true
+      },
+      "fallback_hints": [
+        "Bạn đang chú ý đến bộ dữ liệu nào?",
+        "Hãy so thời điểm phát cảnh báo với mốc nguy cơ của bài.",
+        "Hai số đo liên tiếp đều phải đạt ngưỡng. Bạn muốn kiểm tra ngưỡng nào tiếp?"
+      ],
+      "reflection_question": "Ngưỡng bạn chọn phản ứng khác nhau thế nào ở hai bộ dữ liệu?",
+      "model_limits": "Ngưỡng, dữ liệu và nhãn nguy cơ giả lập; không dự báo lũ thực tế.",
+      "evidence_criteria": [
+        "EV-01",
+        "EV-02",
+        "EV-03"
+      ],
+      "recommendation_focus": [
+        "EV-01",
+        "EV-03"
+      ],
+      "completion": {
+        "requires_reflection": true,
+        "minimum_attempts": 2,
+        "requires_distinct_thresholds": true,
+        "requires_before_and_after_event": false
+      }
+    },
+    {
+      "scenario_id": "8.2",
+      "title": "Thu và lưu nước mưa",
+      "grade": 8,
+      "versions": {
+        "content": "v1",
+        "rules": "v1",
+        "dataset": "v1"
+      },
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "selected_facilities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "cistern",
+                "tank",
+                "pond"
+              ]
+            },
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "selected_facilities"
+        ],
+        "additionalProperties": false
+      },
+      "result_schema": {
+        "type": "object",
+        "properties": {
+          "cost_points": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "remaining_points": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rain_volume_m3": {
+            "type": "number",
+            "minimum": 0
+          },
+          "capacity_m3": {
+            "type": "number",
+            "minimum": 0
+          },
+          "retained_m3": {
+            "type": "number",
+            "minimum": 0
+          },
+          "unretained_m3": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "cost_points",
+          "remaining_points",
+          "rain_volume_m3",
+          "capacity_m3",
+          "retained_m3",
+          "unretained_m3"
+        ],
+        "additionalProperties": false
+      },
+      "data": {
+        "rain_mm": 50,
+        "catchment_m2": 1000,
+        "budget_points": 100,
+        "facilities": {
+          "cistern": {
+            "slot": "A",
+            "cost_points": 30,
+            "dimensions_m": [
+              5,
+              2,
+              1
+            ]
+          },
+          "tank": {
+            "slot": "B",
+            "cost_points": 40,
+            "dimensions_m": [
+              5,
+              2,
+              2
+            ]
+          },
+          "pond": {
+            "slot": "C",
+            "cost_points": 50,
+            "dimensions_m": [
+              5,
+              3,
+              2
+            ]
+          }
+        },
+        "all_water_collected": true,
+        "initial_stored_m3": 0
+      },
+      "fallback_hints": [
+        "Bạn muốn ưu tiên ngân sách hay lượng nước giữ được?",
+        "Hãy so tổng sức chứa với lượng nước mưa.",
+        "Lượng chưa giữ bằng lượng mưa trừ phần đã giữ. Điều này chưa nói được độ sâu ngập ngoài đời."
+      ],
+      "reflection_question": "Bạn giữ được bao nhiêu nước với chi phí đã chọn và chưa thể kết luận điều gì ngoài đời?",
+      "model_limits": "Cân bằng thể tích lý tưởng, không mô phỏng ngập hay dòng chảy thực tế.",
+      "evidence_criteria": [
+        "EV-01",
+        "EV-02",
+        "EV-03"
+      ],
+      "recommendation_focus": [
+        "EV-02"
+      ],
+      "completion": {
+        "requires_reflection": true,
+        "minimum_attempts": 1,
+        "requires_distinct_thresholds": false,
+        "requires_before_and_after_event": false
+      }
+    },
+    {
+      "scenario_id": "8.3",
+      "title": "Kế hoạch tiền tiêu vặt",
+      "grade": 8,
+      "versions": {
+        "content": "v1",
+        "rules": "v1",
+        "dataset": "v1"
+      },
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "allocations_vnd": {
+            "type": "object",
+            "properties": {
+              "food": {
+                "type": "integer",
+                "minimum": 100000,
+                "maximum": 300000,
+                "multipleOf": 10000
+              },
+              "transport": {
+                "type": "integer",
+                "minimum": 50000,
+                "maximum": 300000,
+                "multipleOf": 10000
+              },
+              "learning": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 300000,
+                "multipleOf": 10000
+              },
+              "entertainment": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 300000,
+                "multipleOf": 10000
+              },
+              "savings": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 300000,
+                "multipleOf": 10000
+              }
+            },
+            "required": [
+              "food",
+              "transport",
+              "learning",
+              "entertainment",
+              "savings"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "allocations_vnd"
+        ],
+        "additionalProperties": false
+      },
+      "result_schema": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": [
+              "BASELINE",
+              "AFTER_EVENT"
+            ]
+          },
+          "available_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "allocated_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unallocated_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "savings_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "savings_target_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "savings_shortfall_vnd": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "phase",
+          "available_vnd",
+          "allocated_vnd",
+          "unallocated_vnd",
+          "savings_vnd",
+          "savings_target_vnd",
+          "savings_shortfall_vnd"
+        ],
+        "additionalProperties": false
+      },
+      "data": {
+        "initial_available_vnd": 300000,
+        "event_cost_vnd": 20000,
+        "savings_target_vnd": 60000,
+        "minimums_vnd": {
+          "food": 100000,
+          "transport": 50000
+        }
+      },
+      "fallback_hints": [
+        "Khoản nào bạn muốn giữ sau chi phí phát sinh?",
+        "Hãy so tổng phân bổ với nguồn tiền còn lại.",
+        "Bạn có thể điều chỉnh khoản linh hoạt hoặc mục tiêu tiết kiệm; hãy giải thích lựa chọn."
+      ],
+      "reflection_question": "Sau phát sinh, bạn đổi khoản nào và vì sao?",
+      "model_limits": "Kế hoạch giả định, không phải giao dịch hoặc số dư thực tế.",
+      "evidence_criteria": [
+        "EV-01",
+        "EV-02",
+        "EV-03"
+      ],
+      "recommendation_focus": [
+        "EV-02",
+        "EV-03"
+      ],
+      "completion": {
+        "requires_reflection": true,
+        "minimum_attempts": 1,
+        "requires_distinct_thresholds": false,
+        "requires_before_and_after_event": true
+      }
+    },
+    {
+      "scenario_id": "9.1",
+      "title": "Điện năng trường học",
+      "grade": 9,
+      "versions": {
+        "content": "v1",
+        "rules": "v1",
+        "dataset": "v1"
+      },
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "hours": {
+            "type": "object",
+            "properties": {
+              "lights": {
+                "type": "integer",
+                "minimum": 4,
+                "maximum": 6
+              },
+              "fans": {
+                "type": "integer",
+                "minimum": 4,
+                "maximum": 6
+              },
+              "computers": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2
+              }
+            },
+            "required": [
+              "lights",
+              "fans",
+              "computers"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "hours"
+        ],
+        "additionalProperties": false
+      },
+      "result_schema": {
+        "type": "object",
+        "properties": {
+          "device_kwh": {
+            "type": "object",
+            "properties": {
+              "lights": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fans": {
+                "type": "number",
+                "minimum": 0
+              },
+              "computers": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "lights",
+              "fans",
+              "computers"
+            ],
+            "additionalProperties": false
+          },
+          "total_kwh": {
+            "type": "number",
+            "minimum": 0
+          },
+          "cost_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "baseline_kwh": {
+            "type": "number"
+          },
+          "saved_kwh": {
+            "type": "number"
+          },
+          "saved_vnd": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "device_kwh",
+          "total_kwh",
+          "cost_vnd",
+          "baseline_kwh",
+          "saved_kwh",
+          "saved_vnd"
+        ],
+        "additionalProperties": false
+      },
+      "data": {
+        "devices": {
+          "lights": {
+            "power_w": 20,
+            "quantity": 10,
+            "baseline_hours": 6
+          },
+          "fans": {
+            "power_w": 50,
+            "quantity": 4,
+            "baseline_hours": 6
+          },
+          "computers": {
+            "power_w": 100,
+            "quantity": 5,
+            "baseline_hours": 2
+          }
+        },
+        "price_vnd_per_kwh": 2500
+      },
+      "fallback_hints": [
+        "Nhóm thiết bị nào bạn muốn xem trước?",
+        "Hãy so công suất, số lượng và thời gian của các nhóm.",
+        "Đổi W sang kW rồi nhân số lượng và giờ dùng; kiểm tra cả giới hạn giờ tối thiểu."
+      ],
+      "reflection_question": "Bạn điều chỉnh nhóm nào và vì sao vẫn theo giới hạn bài?",
+      "model_limits": "Công suất cố định và đơn giá giả lập; không phải hóa đơn điện thực tế.",
+      "evidence_criteria": [
+        "EV-01",
+        "EV-02",
+        "EV-03"
+      ],
+      "recommendation_focus": [
+        "EV-01"
+      ],
+      "completion": {
+        "requires_reflection": true,
+        "minimum_attempts": 1,
+        "requires_distinct_thresholds": false,
+        "requires_before_and_after_event": false
+      }
+    },
+    {
+      "scenario_id": "9.2",
+      "title": "Tiết kiệm theo tháng",
+      "grade": 9,
+      "versions": {
+        "content": "v1",
+        "rules": "v1",
+        "dataset": "v1"
+      },
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "monthly_savings_vnd": {
+            "type": "integer",
+            "enum": [
+              0,
+              50000,
+              100000,
+              150000
+            ]
+          }
+        },
+        "required": [
+          "monthly_savings_vnd"
+        ],
+        "additionalProperties": false
+      },
+      "result_schema": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": [
+              "BASELINE",
+              "AFTER_EVENT"
+            ]
+          },
+          "fixed_cost_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "monthly_savings_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unallocated_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "remaining_goal_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "months_to_goal": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "projection_status": {
+            "type": "string",
+            "enum": [
+              "REACHED",
+              "PROJECTED",
+              "NO_SAVINGS"
+            ]
+          }
+        },
+        "required": [
+          "phase",
+          "fixed_cost_vnd",
+          "monthly_savings_vnd",
+          "unallocated_vnd",
+          "remaining_goal_vnd",
+          "months_to_goal",
+          "projection_status"
+        ],
+        "additionalProperties": false
+      },
+      "data": {
+        "monthly_income_vnd": 400000,
+        "fixed_cost_vnd": 250000,
+        "event_fixed_cost_increase_vnd": 50000,
+        "goal_vnd": 900000,
+        "already_saved_vnd": 300000
+      },
+      "fallback_hints": [
+        "Bạn muốn giữ mức tiết kiệm hay tăng phần dự phòng?",
+        "Sau sự kiện, chi phí cố định và tiết kiệm có vượt nguồn tiền không?",
+        "Thời gian dự kiến phụ thuộc số tiền còn thiếu và tiết kiệm mỗi tháng; mức bằng 0 chưa tạo được thời điểm đạt mục tiêu."
+      ],
+      "reflection_question": "Biến động ảnh hưởng thời gian đạt mục tiêu như thế nào?",
+      "model_limits": "Dự kiến không lãi suất/biến động khác; không bảo đảm đạt mục tiêu thực tế.",
+      "evidence_criteria": [
+        "EV-01",
+        "EV-02",
+        "EV-03"
+      ],
+      "recommendation_focus": [
+        "EV-02",
+        "EV-03"
+      ],
+      "completion": {
+        "requires_reflection": true,
+        "minimum_attempts": 1,
+        "requires_distinct_thresholds": false,
+        "requires_before_and_after_event": true
+      }
+    },
+    {
+      "scenario_id": "9.3",
+      "title": "Kế hoạch luyện kỹ năng",
+      "grade": 9,
+      "versions": {
+        "content": "v1",
+        "rules": "v1",
+        "dataset": "v1"
+      },
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "skill": {
+            "type": "string",
+            "enum": [
+              "presentation",
+              "data_analysis",
+              "planning"
+            ]
+          },
+          "activities": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "properties": {
+                "activity_id": {
+                  "type": "string",
+                  "enum": [
+                    "read_summary",
+                    "explain_choice",
+                    "revise_choice"
+                  ]
+                },
+                "day": {
+                  "type": "string",
+                  "enum": [
+                    "MON",
+                    "TUE",
+                    "WED",
+                    "THU",
+                    "FRI",
+                    "SAT",
+                    "SUN"
+                  ]
+                },
+                "planned_product": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500,
+                  "pattern": "\\S"
+                }
+              },
+              "required": [
+                "activity_id",
+                "day",
+                "planned_product"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "skill",
+          "activities"
+        ],
+        "additionalProperties": false
+      },
+      "result_schema": {
+        "type": "object",
+        "properties": {
+          "skill": {
+            "type": "string",
+            "enum": [
+              "presentation",
+              "data_analysis",
+              "planning"
+            ]
+          },
+          "total_minutes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 120
+          },
+          "remaining_minutes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 120
+          },
+          "activity_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "plan_only": {
+            "const": true
+          }
+        },
+        "required": [
+          "skill",
+          "total_minutes",
+          "remaining_minutes",
+          "activity_count",
+          "plan_only"
+        ],
+        "additionalProperties": false
+      },
+      "data": {
+        "available_minutes": 120,
+        "activities": {
+          "read_summary": {
+            "minutes": 30,
+            "title": "Đọc tình huống và ghi ba ý"
+          },
+          "explain_choice": {
+            "minutes": 30,
+            "title": "Viết giải thích phương án"
+          },
+          "revise_choice": {
+            "minutes": 45,
+            "title": "Sửa phương án sau phản hồi"
+          }
+        }
+      },
+      "fallback_hints": [
+        "Bạn muốn luyện điều gì qua hoạt động này?",
+        "Sản phẩm nào giúp bạn tự quan sát việc luyện tập?",
+        "Hãy kiểm tra tổng thời gian và mô tả một sản phẩm cụ thể; lập kế hoạch chưa có nghĩa đã thành thạo."
+      ],
+      "reflection_question": "Vì sao bạn chọn kỹ năng và sản phẩm luyện tập này?",
+      "model_limits": "Hoàn thành kế hoạch không chứng minh thành thạo hay phù hợp nghề.",
+      "evidence_criteria": [
+        "EV-01",
+        "EV-02",
+        "EV-03"
+      ],
+      "recommendation_focus": [
+        "EV-02",
+        "EV-03"
+      ],
+      "completion": {
+        "requires_reflection": true,
+        "minimum_attempts": 1,
+        "requires_distinct_thresholds": false,
+        "requires_before_and_after_event": false
+      }
+    }
+  ]
+}

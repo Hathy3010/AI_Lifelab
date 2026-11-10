@@ -1,0 +1,51 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI LifeLab · Thử nghiệm CV 8.2</title>
+<style>body{font:16px/1.6 'Segoe UI',sans-serif;background:#f4faff;color:#17365e;margin:0}main{max-width:1080px;margin:32px auto;padding:0 20px}button{padding:12px 18px;border:1px solid #bdd3e6;border-radius:10px;background:#e5f1ff;color:#17365e;font:inherit;cursor:pointer;margin:4px}button:focus-visible{outline:3px solid #17365e}.toolbar{margin:20px 0}.board{position:relative;aspect-ratio:1.6;background:#eaf6f8;border:1px solid #bdd3e6;border-radius:20px;overflow:hidden}.zone{position:absolute;display:grid;place-content:center;text-align:center;border:1px solid #7ca1bd;border-radius:15px;box-sizing:border-box;padding:8px;background:#fff7e6;font-size:15px}.slot{background:#e8f8f1}.selected{outline:3px solid #3b82f6}.filled{background:#ddf4e8;border:2px solid #10b981}.cursor{position:absolute;width:16px;height:16px;margin:-8px;border:3px solid #17365e;border-radius:50%;background:#ffbf24;pointer-events:none;display:none}video{width:240px;max-width:100%;transform:scaleX(-1);border-radius:14px}pre{background:#e5f1ff;padding:20px;border-radius:12px;white-space:pre-wrap}p{max-width:85ch}.note{font-size:14px;color:#4f6581}.state{background:#fff0c2;padding:12px 18px;border-radius:12px}label{display:block;margin-top:16px}input{width:100%;padding:10px;box-sizing:border-box;border:1px solid #bdd3e6;border-radius:8px;background:#eaf6f8}@media(max-width:600px){.zone{font-size:12px;padding:2px}.board{aspect-ratio:1.1}}</style>
+<main><h1>Thử thao tác chọn/thả ở bài 8.2</h1><p>Đây là trang kiểm chứng kỹ thuật, chưa kết nối tài khoản hoặc máy chủ. Bạn có thể chọn công trình bằng chuột/bàn phím ngay; camera chỉ mở khi bấm nút.</p>
+<div class="toolbar"><button id="camera">Bật camera & nhận cử chỉ</button><button id="stop">Tắt camera</button><button id="reset">Đặt lại</button></div><p id="status" class="state" role="status">Đang dùng chuột/bàn phím. Chọn công trình rồi chọn ô tương ứng.</p>
+<div class="board" id="board" aria-label="Khu vực thử chọn công trình"><span class="cursor" id="cursor"></span></div>
+<p id="summary">Chưa chọn công trình.</p><video id="video" playsinline muted></video><h2>Dữ liệu lựa chọn</h2><pre id="output">{"selected_facilities": []}</pre>
+<details><summary>Cấu hình tải thư viện và mô hình</summary><p class="note">Chỉ thư viện/WASM/model được tải từ mạng; mã trang không gửi hình camera đi. PoC dùng đường dẫn CDN latest theo hướng dẫn Google, chưa khóa phiên bản phát hành để dùng trong sản phẩm. Cần mạng và môi trường localhost hoặc HTTPS.</p><label>Model URL<input id="model" value="https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"></label></details>
+<p class="note">Cử chỉ: đưa con trỏ ảo lên công trình, khép ngón cái–trỏ để chọn, di chuyển xuống ô, mở hai ngón để thả. Ngưỡng và độ ổn định hiện là giả định cần thử trên thiết bị thật. Không coi các kiểm tra replay là độ chính xác CV.</p></main>
+<script type="module">
+import {GestureController,FACILITIES,SOURCE_RECTS,SLOT_RECTS,applyPlacement} from './cv-controller.mjs';
+const board=document.querySelector('#board'),status=document.querySelector('#status'),video=document.querySelector('#video'),cursor=document.querySelector('#cursor');
+const names={cistern:'Bồn · 30 điểm',tank:'Bể · 40 điểm',pond:'Hồ · 50 điểm'};let selected=[],pointerSelection=null,controller=new GestureController(),stream=null,detector=null,running=false,lastFrame=-1,lastTick=0,booting=false,generation=0;
+function message(s){status.textContent=s;}
+function draw(){
+ document.querySelectorAll('.zone').forEach(n=>n.remove());
+ for(const [kind,rects]of [['source',SOURCE_RECTS],['slot',SLOT_RECTS]])for(const r of rects){const b=document.createElement('button');b.className='zone '+(kind==='slot'?'slot':'');b.style.cssText=`left:${r.x*100}%;top:${r.y*100}%;width:${r.w*100}%;height:${r.h*100}%;margin:0`;b.textContent=kind==='source'?names[r.id]:'Ô '+r.id;b.dataset.kind=kind;b.dataset.id=r.id;
+ if(kind==='source'&&pointerSelection===r.id)b.classList.add('selected');if(kind==='slot'&&selected.some(id=>FACILITIES[id].slot===r.id))b.classList.add('filled');
+ b.onclick=()=>{if(kind==='source'){pointerSelection=r.id;message('Đã chọn '+names[r.id]+'. Hãy chọn ô '+FACILITIES[r.id].slot+'.');draw();}else if(pointerSelection)commit({facility_id:pointerSelection,slot_id:r.id,source:'mouse'});};board.appendChild(b);}
+ const cost=selected.reduce((s,id)=>s+FACILITIES[id].cost,0);document.querySelector('#summary').textContent=`Đã dùng ${cost}/100 điểm. Cùng lựa chọn sẽ cho cùng kết quả dù dùng chuột hay cử chỉ.`;
+ document.querySelector('#output').textContent=JSON.stringify({selected_facilities:selected},null,2);
+}
+function commit(e){try{selected=applyPlacement(selected,e);pointerSelection=null;message('Đã xác nhận lựa chọn từ '+e.source+'.');draw();}catch(err){pointerSelection=null;message(err.message==='INVALID_SLOT'?'Sai ô. Lựa chọn trước được giữ nguyên.':'Vượt ngân sách. Lựa chọn trước được giữ nguyên.');draw();}}
+function stop(){generation++;running=false;controller.cancel();pointerSelection=null;booting=false;if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;if(detector)detector.close();detector=null;lastFrame=-1;cursor.style.display='none';document.querySelector('#camera').disabled=false;message('Camera đã tắt. Bạn vẫn dùng chuột/bàn phím được.');draw();}
+document.querySelector('#stop').onclick=stop;document.querySelector('#reset').onclick=()=>{selected=[];pointerSelection=null;controller.cancel();draw();};
+document.querySelector('#camera').onclick=async()=>{
+ if(running||booting)return;booting=true;const token=++generation;document.querySelector('#camera').disabled=true;
+ try{
+  if(!navigator.mediaDevices?.getUserMedia)throw Error('Cần mở bằng localhost/HTTPS và trình duyệt hỗ trợ camera.');
+  message('Đang tải thư viện/mô hình. Chưa đánh giá chất lượng nhận diện.');
+  const {HandLandmarker,FilesetResolver}=await import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/+esm');
+  const files=await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm');
+  const model=await HandLandmarker.createFromOptions(files,{baseOptions:{modelAssetPath:document.querySelector('#model').value},runningMode:'VIDEO',numHands:1,minHandDetectionConfidence:.6,minHandPresenceConfidence:.6,minTrackingConfidence:.6});
+  if(token!==generation){model.close();return;}detector=model;
+  const media=await navigator.mediaDevices.getUserMedia({video:{width:640,height:480},audio:false});
+  if(token!==generation){media.getTracks().forEach(t=>t.stop());return;}stream=media;video.srcObject=stream;await video.play();
+  if(token!==generation)return;running=true;booting=false;message('Đã bật camera. Hãy khép/mở ngón cái và ngón trỏ để chọn/thả.');requestAnimationFrame(loop);
+ }catch(err){stop();message('Không mở được CV: '+err.message+' Bạn vẫn có thể thao tác bằng chuột.');}
+};
+function loop(now){
+ if(!running)return;
+ try{if(now-lastTick>=83&&video.readyState>=2&&video.currentTime!==lastFrame){lastTick=now;lastFrame=video.currentTime;const result=detector.detectForVideo(video,now);const hand=result.landmarks?.[0];
+ if(!hand){controller.feed({present:false,at:now});cursor.style.display='none';}else{
+  const distance=(a,b)=>Math.hypot((a.x-b.x)*video.videoWidth,(a.y-b.y)*video.videoHeight);const ratio=distance(hand[4],hand[8])/Math.max(1,distance(hand[5],hand[17]));const x=1-hand[8].x,y=hand[8].y;
+  cursor.style.display='block';cursor.style.left=x*100+'%';cursor.style.top=y*100+'%';const event=controller.feed({present:true,ratio,x,y,at:now});if(event)commit(event);
+ }
+ }}catch(err){stop();message('CV bị gián đoạn: '+err.message+' Bạn có thể tiếp tục bằng chuột.');return;}
+ requestAnimationFrame(loop);
+}
+addEventListener('pagehide',stop);draw();
+window.LIFELAB_CV_PROBE={getSelected:()=>[...selected],place:commit};
+</script></html>

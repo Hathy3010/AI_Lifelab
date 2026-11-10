@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1470" viewBox="0 0 1300 1470">
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#607B8E"/></marker></defs><rect width="100%" height="100%" fill="white"/>
+<text x="40" y="67" font-family="Arial,sans-serif" font-size="25" font-weight="bold" fill="#17354A">Sequence · Chạy mô phỏng và hỏi Coach</text>
+<text x="40" y="104" font-family="Arial,sans-serif" font-size="14" fill="#607B8E">AI LifeLab · MVP v2 · 05/11/2026 · Bản thiết kế</text>
+<path d="M135 215 V1450" stroke="#B5C6D2" stroke-dasharray="5 5"/>
+<path d="M385 215 V1450" stroke="#B5C6D2" stroke-dasharray="5 5"/>
+<path d="M635 215 V1450" stroke="#B5C6D2" stroke-dasharray="5 5"/>
+<path d="M885 215 V1450" stroke="#B5C6D2" stroke-dasharray="5 5"/>
+<path d="M1135 215 V1450" stroke="#B5C6D2" stroke-dasharray="5 5"/>
+<polyline points="136,301.0 384,301.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="171.5" y="272.0" width="177" height="24" fill="white"/><text x="260.0" y="289.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Nắm / đặt → Chốt bố trí</text>
+<polyline points="136,401.0 384,401.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="185.5" y="372.0" width="149" height="24" fill="white"/><text x="260.0" y="389.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Nhập dự đoán → Chạy</text>
+<polyline points="386,501.0 634,501.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="379.5" y="472.0" width="261" height="24" fill="white"/><text x="510.0" y="489.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Lưu prediction + phương án/revision</text>
+<polyline points="636,601.0 884,601.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="643.5" y="572.0" width="233" height="24" fill="white"/><text x="760.0" y="589.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Kiểm tra quyền → Lưu prediction</text>
+<polyline points="634,651.0 386,651.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="418.0" y="622.0" width="184" height="24" fill="white"/><text x="510.0" y="639.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Trả prediction_id đã lưu</text>
+<polyline points="386,701.0 634,701.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="404.0" y="672.0" width="212" height="24" fill="white"/><text x="510.0" y="689.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">POST attempt + prediction_id</text>
+<polyline points="636,801.0 884,801.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="650.5" y="772.0" width="219" height="24" fill="white"/><text x="760.0" y="789.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Khóa phiên; tính; lưu; COMMIT</text>
+<polyline points="634,901.0 386,901.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="439.0" y="872.0" width="142" height="24" fill="white"/><text x="510.0" y="889.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Trả kết quả đã lưu</text>
+<polyline points="136,1001.0 384,1001.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="178.5" y="972.0" width="163" height="24" fill="white"/><text x="260.0" y="989.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Hỏi Coach về lượt thử</text>
+<polyline points="386,1101.0 634,1101.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="425.0" y="1072.0" width="170" height="24" fill="white"/><text x="510.0" y="1089.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Gửi câu hỏi + ID nguồn</text>
+<polyline points="636,1201.0 1134,1201.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="768.5" y="1172.0" width="233" height="24" fill="white"/><text x="885.0" y="1189.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Ngữ cảnh → JSON (hoặc fallback)</text>
+<polyline points="636,1301.0 884,1301.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="671.5" y="1272.0" width="177" height="24" fill="white"/><text x="760.0" y="1289.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Lưu hỏi–đáp và metadata</text>
+<polyline points="634,1401.0 386,1401.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="407.5" y="1372.0" width="205" height="24" fill="white"/><text x="510.0" y="1389.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">JSON đã kiểm tra / fallback</text>
+<rect x="30" y="150" width="210" height="65" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="135.0" y="187.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Học sinh</text>
+<rect x="280" y="150" width="210" height="65" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="385.0" y="187.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Web / CV</text>
+<rect x="530" y="150" width="210" height="65" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="635.0" y="187.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Backend</text>
+<rect x="780" y="150" width="210" height="65" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="885.0" y="187.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">PostgreSQL</text>
+<rect x="1030" y="150" width="210" height="65" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="1135.0" y="187.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">LLM</text>
+</svg>

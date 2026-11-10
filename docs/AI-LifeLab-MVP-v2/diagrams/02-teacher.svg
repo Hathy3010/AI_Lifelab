@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2100" viewBox="0 0 1200 2100">
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#607B8E"/></marker></defs><rect width="100%" height="100%" fill="white"/>
+<text x="40" y="67" font-family="Arial,sans-serif" font-size="25" font-weight="bold" fill="#17354A">Teacher flow · Giao bài và giám sát</text>
+<text x="40" y="104" font-family="Arial,sans-serif" font-size="14" fill="#607B8E">AI LifeLab · MVP v2 · 05/11/2026 · Bản thiết kế</text>
+<polyline points="580.0,200 580.0,260" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,330 580.0,390" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,460 580.0,520" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,590 580.0,650" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,720 580.0,850" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,920 580.0,980" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,1050 580.0,1110" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="720,1160.0 800,1175.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="738.0" y="1155.5" width="44" height="24" fill="white"/><text x="760.0" y="1172.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Chưa</text>
+<polyline points="1100,1175.0 1150,1175 1150,1780 720,1780.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,1210 580.0,1330" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="565.0" y="1258.0" width="30" height="24" fill="white"/><text x="580.0" y="1275.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Có</text>
+<polyline points="580.0,1400 580.0,1460" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,1530 580.0,1590" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="580.0,1660 580.0,1730" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="440,1780.0 390,1780 390,885 440,885.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="375.0" y="1320.5" width="30" height="24" fill="white"/><text x="390.0" y="1337.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Có</text>
+<polyline points="580.0,1830 580.0,1940" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="554.5" y="1873.0" width="51" height="24" fill="white"/><text x="580.0" y="1890.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Không</text>
+<ellipse cx="580.0" cy="165.0" rx="140.0" ry="35.0" fill="#E8F8F1" stroke="#679982" stroke-width="1.5"/>
+<text x="580.0" y="170.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Bắt đầu</text>
+<rect x="440" y="260" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="300.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Đăng nhập → Chọn lớp phụ trách</text>
+<rect x="440" y="390" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="430.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Chọn kịch bản → Xem trước</text>
+<rect x="440" y="520" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="560.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Đặt mục tiêu, hướng dẫn và thời hạn</text>
+<rect x="440" y="650" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="680.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Xác nhận giao bài → Lưu danh sách</text>
+<text x="580.0" y="699.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">nhận</text>
+<rect x="440" y="850" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="890.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Xem tiến độ tham gia / hoàn thành</text>
+<rect x="440" y="980" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="1020.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Chọn học sinh và phiên cần xem</text>
+<polygon points="580.0,1110 720,1160.0 580.0,1210 440,1160.0" fill="#FFF7E6" stroke="#B89958" stroke-width="1.5"/>
+<text x="580.0" y="1165.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Có dữ liệu bài làm?</text>
+<rect x="440" y="1330" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="1360.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Xem dự đoán, lượt thử và phản tư nếu</text>
+<text x="580.0" y="1379.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">có</text>
+<rect x="440" y="1460" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="1500.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Đối chiếu bằng chứng → Viết nhận xét</text>
+<rect x="440" y="1590" width="280" height="70" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="580.0" y="1630.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Lưu nhận xét riêng của giáo viên</text>
+<polygon points="580.0,1730 720,1780.0 580.0,1830 440,1780.0" fill="#FFF7E6" stroke="#B89958" stroke-width="1.5"/>
+<text x="580.0" y="1785.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Tiếp tục theo dõi?</text>
+<ellipse cx="580.0" cy="1975.0" rx="140.0" ry="35.0" fill="#E8F8F1" stroke="#679982" stroke-width="1.5"/>
+<text x="580.0" y="1980.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Kết thúc</text>
+<rect x="800" y="1130" width="300" height="90" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="950.0" y="1180.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Chưa bắt đầu: chưa kết luận về năng lực</text>
+<rect x="70" y="360" width="280" height="130" rx="12" fill="#FFFFFF" stroke="#ADBCC7" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="210.0" y="411.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Một học sinh một tài khoản từ danh</text>
+<text x="210.0" y="430.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">sách đã kiểm tra. Đổi lớp / đặt lại</text>
+<text x="210.0" y="449.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">mật khẩu giữ nguyên tài khoản.</text>
+<rect x="70" y="720" width="280" height="130" rx="12" fill="#FFFFFF" stroke="#ADBCC7" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="210.0" y="771.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Không có quyền: không mở dữ liệu. Lỗi</text>
+<text x="210.0" y="790.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">giao / lưu: báo chưa thành công, cho</text>
+<text x="210.0" y="809.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">thử lại chống trùng.</text>
+<rect x="800" y="1450" width="300" height="130" rx="12" fill="#FFFFFF" stroke="#ADBCC7" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="950.0" y="1501.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Theo dõi dữ liệu đã lưu; không xem</text>
+<text x="950.0" y="1520.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">camera trực tiếp. Nhận xét AI là hỗ trợ,</text>
+<text x="950.0" y="1539.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">giáo viên tự nhận định.</text>
+</svg>

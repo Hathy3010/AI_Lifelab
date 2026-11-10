@@ -1,0 +1,38 @@
+H01 | Thế giới thật. Lựa chọn của bạn. | 1440x1080
+H02 | Khám phá kịch bản | 1440x1080
+H03 | Giới thiệu và hướng dẫn | 1440x1080
+S01 | Chào Minh Anh, hôm nay thử gì? | 1440x1080
+S02 | Nhìn lại điều mình đang học | 1440x1080
+S03 | Một mục tiêu nhỏ, một bước mới | 1440x1080
+S04 | Hành trình đang thành hình | 1440x1080
+S05 | Hôm nay bạn muốn khám phá gì? | 1440x1080
+S06 | Khi nước bắt đầu dâng | 1440x1080
+S07 | Sẵn sàng cho lần thử tiếp theo? | 1440x1080
+S08 | Không gian trải nghiệm | 1440x1080
+S09 | Lựa chọn của bạn vừa tạo ra điều gì? | 1440x1080
+S10 | Dành một trang để nhìn lại. | 1440x1080
+S11 | Bạn vừa đi thêm một bước. | 1440x1080
+T01 | Lớp học đang trải nghiệm thế nào? | 1440x1080
+T02 | Lớp học và những nhiệm vụ | 1440x1080
+T03 | Chọn một trải nghiệm cho lớp | 1440x1080
+T04 | Thiết kế cầu chịu tải | 1440x1080
+T05 | Thiết lập nhiệm vụ cho lớp | 1440x1080
+T06 | Kiểm tra một lần trước khi giao | 1440x1080
+T07 | Theo dõi từng bước của lớp | 1440x1080
+T08 | Minh Anh đã thử như thế nào? | 1440x1080
+H01-T | Thế giới thật. Lựa chọn của bạn. · Tablet | 834x1380
+H01-M | Thế giới thật. Lựa chọn của bạn. · Mobile | 390x1225
+S01-T | Chào Minh Anh, hôm nay thử gì? · Tablet | 834x1255
+S01-M | Chào Minh Anh, hôm nay thử gì? · Mobile | 390x1220
+S06-T | Khi nước bắt đầu dâng · Tablet | 834x1327
+S06-M | Khi nước bắt đầu dâng · Mobile | 390x1188
+S08-T | Không gian trải nghiệm · Tablet | 834x1375
+S08-M | Không gian trải nghiệm · Mobile | 390x1224
+S09-T | Lựa chọn của bạn vừa tạo ra điều gì? · Tablet | 834x1230
+S09-M | Lựa chọn của bạn vừa tạo ra điều gì? · Mobile | 390x1070
+S10-T | Dành một trang để nhìn lại. · Tablet | 834x1210
+S10-M | Dành một trang để nhìn lại. · Mobile | 390x1210
+S04-T | Hành trình đang thành hình · Tablet | 834x1230
+S04-M | Hành trình đang thành hình · Mobile | 390x1230
+T01-T | Lớp học đang trải nghiệm thế nào? · Tablet | 834x1225
+T01-M | Lớp học đang trải nghiệm thế nào? · Mobile | 390x1225

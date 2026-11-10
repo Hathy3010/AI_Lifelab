@@ -1,0 +1,23 @@
+{
+  "sky": "#F4FAFF",
+  "cream": "#FFF7E6",
+  "mint": "#E8F8F1",
+  "forest": "#3B82F6",
+  "ink": "#17365E",
+  "muted": "#4F6581",
+  "border": "#CADDE9",
+  "canvas": "#E5F1FF",
+  "sage": "#95D5BF",
+  "blue": "#3B82F6",
+  "ochre": "#825608",
+  "red": "#A93954",
+  "aqua": "#EAF6F8",
+  "green": "#10B981",
+  "yellow": "#FFBF24",
+  "pink": "#FF8FA3",
+  "peach": "#FCE8EE",
+  "butter": "#FFF0C2",
+  "leaf": "#DDF4E8",
+  "onPrimary": "#071B35",
+  "hover": "#70A3F8"
+}

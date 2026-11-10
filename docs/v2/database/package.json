@@ -1,0 +1,11 @@
+{
+  "name": "lifelab-db-design-check",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node check_schema.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.15"
+  }
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1230" viewBox="0 0 1200 1230">
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#607B8E"/></marker></defs><rect width="100%" height="100%" fill="white"/>
+<text x="40" y="67" font-family="Arial,sans-serif" font-size="25" font-weight="bold" fill="#17354A">Kiến trúc · Một backend, xử lý tay trên thiết bị</text>
+<text x="40" y="104" font-family="Arial,sans-serif" font-size="14" fill="#607B8E">AI LifeLab · MVP v2 · 05/11/2026 · Bản thiết kế</text>
+<polyline points="600.0,210 600.0,330" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="525.5" y="258.0" width="149" height="24" fill="white"/><text x="600.0" y="275.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Thao tác / hiển thị</text>
+<polyline points="340,395.0 390,395.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="311.5" y="293.0" width="107" height="24" fill="white"/><text x="365.0" y="310.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Hành động tay</text>
+<polyline points="600.0,460 600.0,650" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="476.5" y="543.0" width="247" height="24" fill="white"/><text x="600.0" y="560.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">HTTPS JSON: bố trí, dự đoán, chat</text>
+<polyline points="600.0,790 600,850 200,850 200.0,940" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="360.5" y="838.0" width="79" height="24" fill="white"/><text x="400.0" y="855.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Đọc / ghi</text>
+<polyline points="600.0,790 600.0,940" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="546.5" y="853.0" width="107" height="24" fill="white"/><text x="600.0" y="870.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Nạp phiên bản</text>
+<polyline points="810,720.0 850,720.0" fill="none" stroke="#607B8E" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="738.0" y="618.0" width="184" height="24" fill="white"/><text x="830.0" y="635.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#17354A">Ngữ cảnh giới hạn / JSON</text>
+<ellipse cx="600.0" cy="175.0" rx="170.0" ry="35.0" fill="#E8F8F1" stroke="#679982" stroke-width="1.5"/>
+<text x="600.0" y="180.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Học sinh / Giáo viên</text>
+<rect x="390" y="330" width="420" height="130" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="600.0" y="381.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">WEB APP · React + TypeScript</text>
+<text x="600.0" y="400.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Bàn 3D · thao tác · lịch sử</text>
+<text x="600.0" y="419.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Hiển thị Coach và fallback</text>
+<rect x="30" y="330" width="310" height="130" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="185.0" y="381.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">CV TRÊN THIẾT BỊ</text>
+<text x="185.0" y="400.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Camera → landmarks → cử chỉ</text>
+<text x="185.0" y="419.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Hai tay + khóa vật + snap ô</text>
+<rect x="390" y="650" width="420" height="140" rx="12" fill="#F4FAFF" stroke="#7399B7" stroke-width="1.5" />
+<text x="600.0" y="706.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">BACKEND · FastAPI</text>
+<text x="600.0" y="725.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Đăng nhập / quyền · phiên / giao bài</text>
+<text x="600.0" y="744.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Quy tắc mô phỏng · Coach adapter</text>
+<rect x="30" y="940" width="340" height="130" rx="12" fill="#E8F8F1" stroke="#679982" stroke-width="1.5" />
+<text x="200.0" y="991.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">POSTGRESQL</text>
+<text x="200.0" y="1010.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">13 bảng: tài khoản, lớp, bài làm</text>
+<text x="200.0" y="1029.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Dự đoán, hội thoại, bằng chứng</text>
+<rect x="430" y="940" width="340" height="130" rx="12" fill="#E8F8F1" stroke="#679982" stroke-width="1.5" />
+<text x="600.0" y="991.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">CẤU HÌNH CÓ PHIÊN BẢN</text>
+<text x="600.0" y="1010.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">6 bài · quy tắc · prompts</text>
+<text x="600.0" y="1029.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Schema · gợi ý dự phòng</text>
+<rect x="850" y="650" width="310" height="140" rx="12" fill="#FFF7E6" stroke="#B89958" stroke-width="1.5" />
+<text x="1005.0" y="706.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">LLM PROVIDER</text>
+<text x="1005.0" y="725.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Sinh câu hỏi / gợi ý</text>
+<text x="1005.0" y="744.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Không tính kết quả chính thức</text>
+<rect x="850" y="940" width="310" height="130" rx="12" fill="#FFFFFF" stroke="#ADBCC7" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="1005.0" y="991.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Video không rời thiết bị. Frontend gửi bố</text>
+<text x="1005.0" y="1010.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">trí đã chốt, không gửi từng khung hình.</text>
+<text x="1005.0" y="1029.0" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#17354A">Khóa LLM ở backend.</text>
+</svg>

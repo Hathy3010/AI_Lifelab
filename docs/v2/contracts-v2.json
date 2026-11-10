@@ -1,0 +1,74 @@
+{
+  "status": "DESIGN_EXAMPLES_NOT_IMPLEMENTED",
+  "scenario_id": "8.2",
+  "scenario_version": "balance-v2",
+  "presentation": "3D tabletop; objects snap to discrete slots; unchanged balance rules",
+  "objects": [
+    {
+      "id": "A",
+      "mass_kg": 1
+    },
+    {
+      "id": "B",
+      "mass_kg": 2
+    }
+  ],
+  "allowed_slots": [
+    -4,
+    -3,
+    -2,
+    -1,
+    1,
+    2,
+    3,
+    4
+  ],
+  "slot_unit_m": 0.1,
+  "g": 9.8,
+  "attempt_request_example": {
+    "request_id": "uuid",
+    "prediction_id": "uuid",
+    "placements": [
+      {
+        "object_id": "A",
+        "slot": -4
+      },
+      {
+        "object_id": "B",
+        "slot": 2
+      }
+    ],
+    "source": "gesture"
+  },
+  "result_example": {
+    "left_torque_nm": 3.92,
+    "right_torque_nm": 3.92,
+    "net_torque_nm": 0,
+    "outcome": "BALANCED"
+  },
+  "coach_response_example": {
+    "message": "Hai phía có mômen bằng nhau trong lượt vừa thử.",
+    "question": "Vì sao vật nhẹ hơn lại cần đặt xa điểm tựa hơn?",
+    "hint_level": 1,
+    "referenced_attempt_ids": [
+      "uuid-of-saved-attempt"
+    ],
+    "ui_action": {
+      "type": "HIGHLIGHT_OBJECT",
+      "object_id": "A"
+    }
+  },
+  "coach_allowed_ui_actions": [
+    "NONE",
+    "HIGHLIGHT_OBJECT"
+  ],
+  "cv_action_example": {
+    "action": "PLACE_OBJECT",
+    "object_id": "A",
+    "slot": -4,
+    "hand_track_id": "local-1",
+    "source": "gesture"
+  },
+  "privacy": "hand_track_id and landmarks remain local; backend persists confirmed placements only",
+  "canonical_plan_hash": "Sort by object_id; canonical JSON using integer slots; SHA256; server recomputes. Include scenario_version. Bind prediction to plan and revision."
+}

@@ -1,0 +1,2141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI LifeLab API and AI contracts",
+  "components": {
+    "schemas": {
+      "WaterInput": {
+        "type": "object",
+        "properties": {
+          "threshold_cm": {
+            "type": "integer",
+            "enum": [
+              50,
+              60,
+              70,
+              80
+            ]
+          }
+        },
+        "required": [
+          "threshold_cm"
+        ],
+        "additionalProperties": false
+      },
+      "WaterResult": {
+        "type": "object",
+        "properties": {
+          "datasets": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "properties": {
+                "dataset_id": {
+                  "type": "string",
+                  "enum": [
+                    "A",
+                    "B"
+                  ]
+                },
+                "alert_minute": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "hazard_minute": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "lead_minutes": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "classification": {
+                  "type": "string",
+                  "enum": [
+                    "EARLY",
+                    "AT_HAZARD",
+                    "LATE",
+                    "MISSED",
+                    "FALSE_ALERT",
+                    "CLEAR"
+                  ]
+                }
+              },
+              "required": [
+                "dataset_id",
+                "alert_minute",
+                "hazard_minute",
+                "lead_minutes",
+                "classification"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "datasets"
+        ],
+        "additionalProperties": false
+      },
+      "WaterRun": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "8.1"
+          },
+          "input": {
+            "$ref": "#/components/schemas/WaterInput"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "mouse",
+              "keyboard"
+            ]
+          }
+        },
+        "required": [
+          "client_request_id",
+          "scenario_id",
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "WaterAttempt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "session_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "8.1"
+          },
+          "attempt_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "input": {
+            "$ref": "#/components/schemas/WaterInput"
+          },
+          "result": {
+            "$ref": "#/components/schemas/WaterResult"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "scenario_id",
+          "attempt_number",
+          "versions",
+          "input",
+          "result",
+          "created_at"
+        ],
+        "additionalProperties": false
+      },
+      "StorageInput": {
+        "type": "object",
+        "properties": {
+          "selected_facilities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "cistern",
+                "tank",
+                "pond"
+              ]
+            },
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "selected_facilities"
+        ],
+        "additionalProperties": false
+      },
+      "StorageResult": {
+        "type": "object",
+        "properties": {
+          "cost_points": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "remaining_points": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rain_volume_m3": {
+            "type": "number",
+            "minimum": 0
+          },
+          "capacity_m3": {
+            "type": "number",
+            "minimum": 0
+          },
+          "retained_m3": {
+            "type": "number",
+            "minimum": 0
+          },
+          "unretained_m3": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "cost_points",
+          "remaining_points",
+          "rain_volume_m3",
+          "capacity_m3",
+          "retained_m3",
+          "unretained_m3"
+        ],
+        "additionalProperties": false
+      },
+      "StorageRun": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "8.2"
+          },
+          "input": {
+            "$ref": "#/components/schemas/StorageInput"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "mouse",
+              "keyboard",
+              "gesture"
+            ]
+          }
+        },
+        "required": [
+          "client_request_id",
+          "scenario_id",
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "StorageAttempt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "session_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "8.2"
+          },
+          "attempt_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "input": {
+            "$ref": "#/components/schemas/StorageInput"
+          },
+          "result": {
+            "$ref": "#/components/schemas/StorageResult"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "scenario_id",
+          "attempt_number",
+          "versions",
+          "input",
+          "result",
+          "created_at"
+        ],
+        "additionalProperties": false
+      },
+      "WeeklyInput": {
+        "type": "object",
+        "properties": {
+          "allocations_vnd": {
+            "type": "object",
+            "properties": {
+              "food": {
+                "type": "integer",
+                "minimum": 100000,
+                "maximum": 300000,
+                "multipleOf": 10000
+              },
+              "transport": {
+                "type": "integer",
+                "minimum": 50000,
+                "maximum": 300000,
+                "multipleOf": 10000
+              },
+              "learning": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 300000,
+                "multipleOf": 10000
+              },
+              "entertainment": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 300000,
+                "multipleOf": 10000
+              },
+              "savings": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 300000,
+                "multipleOf": 10000
+              }
+            },
+            "required": [
+              "food",
+              "transport",
+              "learning",
+              "entertainment",
+              "savings"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "allocations_vnd"
+        ],
+        "additionalProperties": false
+      },
+      "WeeklyResult": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": [
+              "BASELINE",
+              "AFTER_EVENT"
+            ]
+          },
+          "available_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "allocated_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unallocated_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "savings_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "savings_target_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "savings_shortfall_vnd": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "phase",
+          "available_vnd",
+          "allocated_vnd",
+          "unallocated_vnd",
+          "savings_vnd",
+          "savings_target_vnd",
+          "savings_shortfall_vnd"
+        ],
+        "additionalProperties": false
+      },
+      "WeeklyRun": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "8.3"
+          },
+          "input": {
+            "$ref": "#/components/schemas/WeeklyInput"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "mouse",
+              "keyboard"
+            ]
+          }
+        },
+        "required": [
+          "client_request_id",
+          "scenario_id",
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "WeeklyAttempt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "session_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "8.3"
+          },
+          "attempt_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "input": {
+            "$ref": "#/components/schemas/WeeklyInput"
+          },
+          "result": {
+            "$ref": "#/components/schemas/WeeklyResult"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "scenario_id",
+          "attempt_number",
+          "versions",
+          "input",
+          "result",
+          "created_at"
+        ],
+        "additionalProperties": false
+      },
+      "EnergyInput": {
+        "type": "object",
+        "properties": {
+          "hours": {
+            "type": "object",
+            "properties": {
+              "lights": {
+                "type": "integer",
+                "minimum": 4,
+                "maximum": 6
+              },
+              "fans": {
+                "type": "integer",
+                "minimum": 4,
+                "maximum": 6
+              },
+              "computers": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2
+              }
+            },
+            "required": [
+              "lights",
+              "fans",
+              "computers"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "hours"
+        ],
+        "additionalProperties": false
+      },
+      "EnergyResult": {
+        "type": "object",
+        "properties": {
+          "device_kwh": {
+            "type": "object",
+            "properties": {
+              "lights": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fans": {
+                "type": "number",
+                "minimum": 0
+              },
+              "computers": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "lights",
+              "fans",
+              "computers"
+            ],
+            "additionalProperties": false
+          },
+          "total_kwh": {
+            "type": "number",
+            "minimum": 0
+          },
+          "cost_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "baseline_kwh": {
+            "type": "number"
+          },
+          "saved_kwh": {
+            "type": "number"
+          },
+          "saved_vnd": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "device_kwh",
+          "total_kwh",
+          "cost_vnd",
+          "baseline_kwh",
+          "saved_kwh",
+          "saved_vnd"
+        ],
+        "additionalProperties": false
+      },
+      "EnergyRun": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "9.1"
+          },
+          "input": {
+            "$ref": "#/components/schemas/EnergyInput"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "mouse",
+              "keyboard"
+            ]
+          }
+        },
+        "required": [
+          "client_request_id",
+          "scenario_id",
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "EnergyAttempt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "session_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "9.1"
+          },
+          "attempt_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "input": {
+            "$ref": "#/components/schemas/EnergyInput"
+          },
+          "result": {
+            "$ref": "#/components/schemas/EnergyResult"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "scenario_id",
+          "attempt_number",
+          "versions",
+          "input",
+          "result",
+          "created_at"
+        ],
+        "additionalProperties": false
+      },
+      "SavingInput": {
+        "type": "object",
+        "properties": {
+          "monthly_savings_vnd": {
+            "type": "integer",
+            "enum": [
+              0,
+              50000,
+              100000,
+              150000
+            ]
+          }
+        },
+        "required": [
+          "monthly_savings_vnd"
+        ],
+        "additionalProperties": false
+      },
+      "SavingResult": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": [
+              "BASELINE",
+              "AFTER_EVENT"
+            ]
+          },
+          "fixed_cost_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "monthly_savings_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unallocated_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "remaining_goal_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "months_to_goal": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "projection_status": {
+            "type": "string",
+            "enum": [
+              "REACHED",
+              "PROJECTED",
+              "NO_SAVINGS"
+            ]
+          }
+        },
+        "required": [
+          "phase",
+          "fixed_cost_vnd",
+          "monthly_savings_vnd",
+          "unallocated_vnd",
+          "remaining_goal_vnd",
+          "months_to_goal",
+          "projection_status"
+        ],
+        "additionalProperties": false
+      },
+      "SavingRun": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "9.2"
+          },
+          "input": {
+            "$ref": "#/components/schemas/SavingInput"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "mouse",
+              "keyboard"
+            ]
+          }
+        },
+        "required": [
+          "client_request_id",
+          "scenario_id",
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "SavingAttempt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "session_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "9.2"
+          },
+          "attempt_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "input": {
+            "$ref": "#/components/schemas/SavingInput"
+          },
+          "result": {
+            "$ref": "#/components/schemas/SavingResult"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "scenario_id",
+          "attempt_number",
+          "versions",
+          "input",
+          "result",
+          "created_at"
+        ],
+        "additionalProperties": false
+      },
+      "SkillInput": {
+        "type": "object",
+        "properties": {
+          "skill": {
+            "type": "string",
+            "enum": [
+              "presentation",
+              "data_analysis",
+              "planning"
+            ]
+          },
+          "activities": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "properties": {
+                "activity_id": {
+                  "type": "string",
+                  "enum": [
+                    "read_summary",
+                    "explain_choice",
+                    "revise_choice"
+                  ]
+                },
+                "day": {
+                  "type": "string",
+                  "enum": [
+                    "MON",
+                    "TUE",
+                    "WED",
+                    "THU",
+                    "FRI",
+                    "SAT",
+                    "SUN"
+                  ]
+                },
+                "planned_product": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500,
+                  "pattern": "\\S"
+                }
+              },
+              "required": [
+                "activity_id",
+                "day",
+                "planned_product"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "skill",
+          "activities"
+        ],
+        "additionalProperties": false
+      },
+      "SkillResult": {
+        "type": "object",
+        "properties": {
+          "skill": {
+            "type": "string",
+            "enum": [
+              "presentation",
+              "data_analysis",
+              "planning"
+            ]
+          },
+          "total_minutes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 120
+          },
+          "remaining_minutes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 120
+          },
+          "activity_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "plan_only": {
+            "const": true
+          }
+        },
+        "required": [
+          "skill",
+          "total_minutes",
+          "remaining_minutes",
+          "activity_count",
+          "plan_only"
+        ],
+        "additionalProperties": false
+      },
+      "SkillRun": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "9.3"
+          },
+          "input": {
+            "$ref": "#/components/schemas/SkillInput"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "mouse",
+              "keyboard"
+            ]
+          }
+        },
+        "required": [
+          "client_request_id",
+          "scenario_id",
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "SkillAttempt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "session_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "const": "9.3"
+          },
+          "attempt_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "input": {
+            "$ref": "#/components/schemas/SkillInput"
+          },
+          "result": {
+            "$ref": "#/components/schemas/SkillResult"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "scenario_id",
+          "attempt_number",
+          "versions",
+          "input",
+          "result",
+          "created_at"
+        ],
+        "additionalProperties": false
+      },
+      "RunRequest": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/WaterRun"
+          },
+          {
+            "$ref": "#/components/schemas/StorageRun"
+          },
+          {
+            "$ref": "#/components/schemas/WeeklyRun"
+          },
+          {
+            "$ref": "#/components/schemas/EnergyRun"
+          },
+          {
+            "$ref": "#/components/schemas/SavingRun"
+          },
+          {
+            "$ref": "#/components/schemas/SkillRun"
+          }
+        ]
+      },
+      "Attempt": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/WaterAttempt"
+          },
+          {
+            "$ref": "#/components/schemas/StorageAttempt"
+          },
+          {
+            "$ref": "#/components/schemas/WeeklyAttempt"
+          },
+          {
+            "$ref": "#/components/schemas/EnergyAttempt"
+          },
+          {
+            "$ref": "#/components/schemas/SavingAttempt"
+          },
+          {
+            "$ref": "#/components/schemas/SkillAttempt"
+          }
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "\\S"
+              },
+              "message": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000,
+                "pattern": "\\S"
+              },
+              "fields": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "request_id": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "required": [
+              "code",
+              "message",
+              "fields",
+              "request_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "\\S"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "STUDENT",
+              "TEACHER"
+            ]
+          },
+          "grade": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "enum": [
+              8,
+              9,
+              null
+            ]
+          },
+          "learning_goal": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "EV-01",
+              "EV-02",
+              "EV-03",
+              null
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "display_name",
+          "role",
+          "grade",
+          "learning_goal"
+        ],
+        "additionalProperties": false
+      },
+      "LearningGoal": {
+        "type": "object",
+        "properties": {
+          "learning_goal": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "EV-01",
+              "EV-02",
+              "EV-03",
+              null
+            ]
+          }
+        },
+        "required": [
+          "learning_goal"
+        ],
+        "additionalProperties": false
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "\\S"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ],
+        "additionalProperties": false
+      },
+      "AuthResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "csrf_token": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "user",
+          "csrf_token"
+        ],
+        "additionalProperties": false
+      },
+      "StartSession": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "type": "string",
+            "enum": [
+              "8.1",
+              "8.2",
+              "8.3",
+              "9.1",
+              "9.2",
+              "9.3"
+            ]
+          },
+          "assignment_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "client_request_id",
+          "scenario_id"
+        ],
+        "additionalProperties": false
+      },
+      "Draft": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "object",
+            "maxProperties": 20,
+            "description": "Partial scenario fields; backend whitelists keys, permits null while editing. No results or ownership fields."
+          },
+          "reflection_answer": {
+            "type": "string",
+            "maxLength": 4000
+          }
+        },
+        "required": [
+          "input",
+          "reflection_answer"
+        ],
+        "additionalProperties": false
+      },
+      "SaveDraft": {
+        "type": "object",
+        "properties": {
+          "base_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "draft": {
+            "$ref": "#/components/schemas/Draft"
+          }
+        },
+        "required": [
+          "base_revision",
+          "draft"
+        ],
+        "additionalProperties": false
+      },
+      "DraftSaved": {
+        "type": "object",
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "saved_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "draft": {
+            "$ref": "#/components/schemas/Draft"
+          }
+        },
+        "required": [
+          "revision",
+          "saved_at",
+          "draft"
+        ],
+        "additionalProperties": false
+      },
+      "EventRequest": {
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "enum": [
+              "EXTRA_COST_20000",
+              "FIXED_COST_UP_50000"
+            ]
+          }
+        },
+        "required": [
+          "event_id"
+        ],
+        "additionalProperties": false
+      },
+      "EventResult": {
+        "type": "object",
+        "properties": {
+          "event_applied": {
+            "const": true
+          },
+          "phase": {
+            "const": "AFTER_EVENT"
+          },
+          "requires_adjustment": {
+            "type": "boolean"
+          },
+          "shortage_vnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "preview_status": {
+            "type": "string",
+            "enum": [
+              "READY",
+              "INCOMPLETE",
+              "NEEDS_ADJUSTMENT"
+            ]
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "event_applied",
+          "phase",
+          "requires_adjustment",
+          "shortage_vnd",
+          "preview_status",
+          "revision"
+        ],
+        "additionalProperties": false
+      },
+      "CompleteRequest": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "selected_attempt_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "reflection_answer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "client_request_id",
+          "selected_attempt_id",
+          "reflection_answer"
+        ],
+        "additionalProperties": false
+      },
+      "Session": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "type": "string",
+            "enum": [
+              "8.1",
+              "8.2",
+              "8.3",
+              "9.1",
+              "9.2",
+              "9.3"
+            ]
+          },
+          "assignment_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "IN_PROGRESS",
+              "REFLECTION",
+              "COMPLETED"
+            ]
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "draft_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "draft": {
+            "$ref": "#/components/schemas/Draft"
+          },
+          "event_applied": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "scenario_id",
+          "assignment_id",
+          "status",
+          "versions",
+          "draft_revision",
+          "draft",
+          "event_applied",
+          "created_at",
+          "completed_at"
+        ],
+        "additionalProperties": false
+      },
+      "Evidence": {
+        "type": "object",
+        "properties": {
+          "criterion_id": {
+            "type": "string",
+            "enum": [
+              "EV-01",
+              "EV-02",
+              "EV-03"
+            ]
+          },
+          "observation": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "NOT_REVIEWED",
+              "INSUFFICIENT",
+              "CLARIFY",
+              "SUPPORTED",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "attempt_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "maxItems": 2,
+            "uniqueItems": true
+          },
+          "reflection_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "SYSTEM",
+              "AI",
+              "TEACHER"
+            ]
+          }
+        },
+        "required": [
+          "criterion_id",
+          "observation",
+          "status",
+          "attempt_ids",
+          "reflection_id",
+          "origin"
+        ],
+        "additionalProperties": false
+      },
+      "Completed": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/Session"
+          },
+          "reflection_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "session",
+          "reflection_id",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "CoachRequest": {
+        "type": "object",
+        "properties": {
+          "attempt_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "uniqueItems": true,
+            "maxItems": 2
+          },
+          "hint_level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "question": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "attempt_ids",
+          "hint_level"
+        ],
+        "additionalProperties": false
+      },
+      "CoachResponse": {
+        "type": "object",
+        "properties": {
+          "origin": {
+            "type": "string",
+            "enum": [
+              "AI",
+              "FALLBACK"
+            ]
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "pattern": "\\S"
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 800
+          },
+          "related_attempt_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "uniqueItems": true,
+            "maxItems": 2
+          }
+        },
+        "required": [
+          "origin",
+          "question",
+          "hint",
+          "related_attempt_ids"
+        ],
+        "additionalProperties": false
+      },
+      "Assessment": {
+        "type": "object",
+        "properties": {
+          "criterion_id": {
+            "type": "string",
+            "enum": [
+              "EV-01",
+              "EV-02",
+              "EV-03"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "INSUFFICIENT",
+              "CLARIFY",
+              "SUPPORTED",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "comment": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 800,
+            "pattern": "\\S"
+          },
+          "related_attempt_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "uniqueItems": true,
+            "maxItems": 2
+          },
+          "reflection_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "criterion_id",
+          "status",
+          "comment",
+          "related_attempt_ids",
+          "reflection_id"
+        ],
+        "additionalProperties": false
+      },
+      "Feedback": {
+        "type": "object",
+        "properties": {
+          "origin": {
+            "type": "string",
+            "enum": [
+              "AI",
+              "FALLBACK"
+            ]
+          },
+          "prompt_version": {
+            "const": "v1"
+          },
+          "assessments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Assessment"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "requires_teacher_review": {
+            "const": true
+          }
+        },
+        "required": [
+          "origin",
+          "prompt_version",
+          "assessments",
+          "requires_teacher_review"
+        ],
+        "additionalProperties": false
+      },
+      "TeacherReviewRequest": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "comment": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "assessments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Assessment"
+            },
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "client_request_id",
+          "comment"
+        ],
+        "additionalProperties": false
+      },
+      "TeacherReview": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "session_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "teacher_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "comment": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "teacher_id",
+          "comment",
+          "created_at"
+        ],
+        "additionalProperties": false
+      },
+      "AssignmentRequest": {
+        "type": "object",
+        "properties": {
+          "client_request_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "class_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "type": "string",
+            "enum": [
+              "8.1",
+              "8.2",
+              "8.3",
+              "9.1",
+              "9.2",
+              "9.3"
+            ]
+          },
+          "instructions": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "due_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "client_request_id",
+          "class_id",
+          "scenario_id",
+          "instructions",
+          "due_at"
+        ],
+        "additionalProperties": false
+      },
+      "Assignment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "class_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "scenario_id": {
+            "type": "string",
+            "enum": [
+              "8.1",
+              "8.2",
+              "8.3",
+              "9.1",
+              "9.2",
+              "9.3"
+            ]
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "instructions": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "due_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "recipient_count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "id",
+          "class_id",
+          "scenario_id",
+          "versions",
+          "instructions",
+          "due_at",
+          "recipient_count"
+        ],
+        "additionalProperties": false
+      },
+      "Scenario": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "8.1",
+              "8.2",
+              "8.3",
+              "9.1",
+              "9.2",
+              "9.3"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "pattern": "\\S"
+          },
+          "grade": {
+            "type": "integer",
+            "minimum": 8,
+            "maximum": 9
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "const": "v1"
+              },
+              "rules": {
+                "const": "v1"
+              },
+              "dataset": {
+                "const": "v1"
+              }
+            },
+            "required": [
+              "content",
+              "rules",
+              "dataset"
+            ],
+            "additionalProperties": false
+          },
+          "model_limits": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 3000,
+            "pattern": "\\S"
+          },
+          "input_schema": {
+            "type": "object"
+          },
+          "public_data": {
+            "type": "object"
+          },
+          "reflection_question": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "grade",
+          "versions",
+          "model_limits",
+          "input_schema",
+          "public_data",
+          "reflection_question"
+        ],
+        "additionalProperties": false
+      },
+      "Class": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "\\S"
+          },
+          "grade": {
+            "type": "integer",
+            "minimum": 8,
+            "maximum": 9
+          },
+          "student_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "grade",
+          "student_count"
+        ],
+        "additionalProperties": false
+      },
+      "ProgressItem": {
+        "type": "object",
+        "properties": {
+          "student_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "pattern": "\\S"
+          },
+          "session_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "NOT_STARTED",
+              "IN_PROGRESS",
+              "REFLECTION",
+              "COMPLETED"
+            ]
+          },
+          "completed_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "late": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "student_id",
+          "display_name",
+          "session_id",
+          "status",
+          "completed_at",
+          "late"
+        ],
+        "additionalProperties": false
+      },
+      "Progress": {
+        "type": "object",
+        "properties": {
+          "assignment_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "recipient_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProgressItem"
+            }
+          }
+        },
+        "required": [
+          "assignment_id",
+          "recipient_count",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "Recommendation": {
+        "type": "object",
+        "properties": {
+          "scenario_id": {
+            "type": "string",
+            "enum": [
+              "8.1",
+              "8.2",
+              "8.3",
+              "9.1",
+              "9.2",
+              "9.3"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "pattern": "\\S"
+          },
+          "reason_code": {
+            "type": "string",
+            "enum": [
+              "SELF_SELECTED_SKILL",
+              "NEXT_UNFINISHED"
+            ]
+          }
+        },
+        "required": [
+          "scenario_id",
+          "reason",
+          "reason_code"
+        ],
+        "additionalProperties": false
+      },
+      "Profile": {
+        "type": "object",
+        "properties": {
+          "completed_session_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Evidence"
+            }
+          }
+        },
+        "required": [
+          "completed_session_count",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

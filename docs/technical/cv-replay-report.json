@@ -1,0 +1,46 @@
+{
+  "scope": "Synthetic landmark-state replay and placement rules only; not real camera recognition",
+  "passed": 10,
+  "cases": [
+    {
+      "name": "valid_drop_once",
+      "passed": true
+    },
+    {
+      "name": "wrong_slot_cancel",
+      "passed": true
+    },
+    {
+      "name": "hand_loss_cancel",
+      "passed": true
+    },
+    {
+      "name": "noise_not_select",
+      "passed": true
+    },
+    {
+      "name": "outside_palette_no_selection",
+      "passed": true
+    },
+    {
+      "name": "hysteresis_keeps_drag",
+      "passed": true
+    },
+    {
+      "name": "invalid_coordinate_cancel",
+      "passed": true
+    },
+    {
+      "name": "mouse_and_gesture_same_result",
+      "passed": true
+    },
+    {
+      "name": "placement_deduplicated",
+      "passed": true
+    },
+    {
+      "name": "budget_rejected",
+      "passed": true
+    }
+  ]
+}

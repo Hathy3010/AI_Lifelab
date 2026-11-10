@@ -1,0 +1,101 @@
+{
+  "scope": "Local HTML/SVG rendering and pointer/keyboard probe; no real camera/LLM/database",
+  "checks": [
+    {
+      "name": "three_diagrams_loaded",
+      "passed": true
+    },
+    {
+      "name": "document_no_horizontal_overflow",
+      "passed": true
+    },
+    {
+      "name": "local_link_AI-LifeLab-Dac-ta-MVP.html",
+      "passed": true
+    },
+    {
+      "name": "local_link_AI-LifeLab-Yeu-cau-Bang-chung-Huong-dan.html",
+      "passed": true
+    },
+    {
+      "name": "local_link_AI-LifeLab-Thiet-ke-4-6.zip",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/cv-probe.html",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/scenarios.v1.json",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/data-contracts.schema.json",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/openapi.json",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/schema.sql",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/ai-prompts.v1.html",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/ai-contracts.v1.json",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/cv-probe.html",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/cv-controller.mjs",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/verification-report.json",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/cv-replay-report.json",
+      "passed": true
+    },
+    {
+      "name": "local_link_technical/validation-plan.html",
+      "passed": true
+    },
+    {
+      "name": "pointer_places_tank",
+      "passed": true
+    },
+    {
+      "name": "wrong_slot_keeps_state",
+      "passed": true
+    },
+    {
+      "name": "keyboard_places_pond",
+      "passed": true
+    },
+    {
+      "name": "budget_prevents_third_facility",
+      "passed": true
+    },
+    {
+      "name": "stop_retains_mouse_controls",
+      "passed": true
+    },
+    {
+      "name": "reset_clears_selection",
+      "passed": true
+    },
+    {
+      "name": "no_javascript_errors",
+      "passed": true
+    }
+  ]
+}

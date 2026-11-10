@@ -1,0 +1,134 @@
+[
+  {
+    "id": "H01",
+    "page": "Home",
+    "title": "Trang chủ",
+    "file": "H01.svg"
+  },
+  {
+    "id": "H02",
+    "page": "Home",
+    "title": "Khám phá kịch bản",
+    "file": "H02.svg"
+  },
+  {
+    "id": "H03",
+    "page": "Home",
+    "title": "Giới thiệu và hướng dẫn",
+    "file": "H03.svg"
+  },
+  {
+    "id": "S01",
+    "page": "Student",
+    "title": "Trang cá nhân",
+    "file": "S01.svg"
+  },
+  {
+    "id": "S02",
+    "page": "Student",
+    "title": "Hồ sơ năng lực và tiến trình",
+    "file": "S02.svg"
+  },
+  {
+    "id": "S03",
+    "page": "Student",
+    "title": "Mục tiêu học tập cá nhân",
+    "file": "S03.svg"
+  },
+  {
+    "id": "S04",
+    "page": "Student",
+    "title": "Trải nghiệm của mình",
+    "file": "S04.svg"
+  },
+  {
+    "id": "S05",
+    "page": "Student",
+    "title": "Thư viện trải nghiệm",
+    "file": "S05.svg"
+  },
+  {
+    "id": "S06",
+    "page": "Student",
+    "title": "Kịch bản: Thiết kế cầu chịu tải",
+    "file": "S06.svg"
+  },
+  {
+    "id": "S07",
+    "page": "Student",
+    "title": "Chuẩn bị trải nghiệm",
+    "file": "S07.svg"
+  },
+  {
+    "id": "S08",
+    "page": "Student",
+    "title": "Không gian trải nghiệm",
+    "file": "S08.svg"
+  },
+  {
+    "id": "S09",
+    "page": "Student",
+    "title": "Quan sát kết quả và thử lại",
+    "file": "S09.svg"
+  },
+  {
+    "id": "S10",
+    "page": "Student",
+    "title": "Nhìn lại trải nghiệm",
+    "file": "S10.svg"
+  },
+  {
+    "id": "S11",
+    "page": "Student",
+    "title": "Kết quả trải nghiệm",
+    "file": "S11.svg"
+  },
+  {
+    "id": "T01",
+    "page": "Teacher",
+    "title": "Tổng quan giảng dạy",
+    "file": "T01.svg"
+  },
+  {
+    "id": "T02",
+    "page": "Teacher",
+    "title": "Lớp và nhiệm vụ",
+    "file": "T02.svg"
+  },
+  {
+    "id": "T03",
+    "page": "Teacher",
+    "title": "Thư viện hoạt động",
+    "file": "T03.svg"
+  },
+  {
+    "id": "T04",
+    "page": "Teacher",
+    "title": "Chi tiết và xem trước hoạt động",
+    "file": "T04.svg"
+  },
+  {
+    "id": "T05",
+    "page": "Teacher",
+    "title": "Thiết lập nhiệm vụ",
+    "file": "T05.svg"
+  },
+  {
+    "id": "T06",
+    "page": "Teacher",
+    "title": "Xem lại trước khi giao",
+    "file": "T06.svg"
+  },
+  {
+    "id": "T07",
+    "page": "Teacher",
+    "title": "Theo dõi nhiệm vụ",
+    "file": "T07.svg"
+  },
+  {
+    "id": "T08",
+    "page": "Teacher",
+    "title": "Chi tiết tiến trình học sinh",
+    "file": "T08.svg"
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "scope": "FULL PROJECT: 13 tables",
+  "engine": "PGlite (isolated in-memory PostgreSQL WASM)",
+  "version": "PostgreSQL 18.6 (PGlite 0.5.15) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "passed": 34,
+  "checks": [
+    {
+      "name": "thirteen_tables",
+      "passed": true
+    },
+    {
+      "name": "one_student_account",
+      "passed": true
+    },
+    {
+      "name": "student_identity_required",
+      "passed": true
+    },
+    {
+      "name": "assignment_teacher_matches_class",
+      "passed": true
+    },
+    {
+      "name": "recipient_must_be_class_member",
+      "passed": true
+    },
+    {
+      "name": "recipient_class_matches_assignment",
+      "passed": true
+    },
+    {
+      "name": "session_must_be_assignment_recipient",
+      "passed": true
+    },
+    {
+      "name": "one_session_per_assigned_student",
+      "passed": true
+    },
+    {
+      "name": "one_active_self_study_per_scenario",
+      "passed": true
+    },
+    {
+      "name": "self_study_without_assignment",
+      "passed": true
+    },
+    {
+      "name": "prediction_same_session",
+      "passed": true
+    },
+    {
+      "name": "prediction_single_use",
+      "passed": true
+    },
+    {
+      "name": "gesture_requires_version",
+      "passed": true
+    },
+    {
+      "name": "attempt_immutable",
+      "passed": true
+    },
+    {
+      "name": "prediction_immutable",
+      "passed": true
+    },
+    {
+      "name": "event_only_supported_scenarios",
+      "passed": true
+    },
+    {
+      "name": "coach_sources_same_session",
+      "passed": true
+    },
+    {
+      "name": "coach_max_four_sources",
+      "passed": true
+    },
+    {
+      "name": "coach_context_immutable",
+      "passed": true
+    },
+    {
+      "name": "ready_requires_response",
+      "passed": true
+    },
+    {
+      "name": "highlight_requires_object",
+      "passed": true
+    },
+    {
+      "name": "fallback_retained",
+      "passed": true
+    },
+    {
+      "name": "finished_coach_immutable",
+      "passed": true
+    },
+    {
+      "name": "finished_coach_sources_locked",
+      "passed": true
+    },
+    {
+      "name": "reflection_same_session",
+      "passed": true
+    },
+    {
+      "name": "one_final_reflection",
+      "passed": true
+    },
+    {
+      "name": "evidence_same_session",
+      "passed": true
+    },
+    {
+      "name": "evidence_with_two_attempts",
+      "passed": true
+    },
+    {
+      "name": "completed_requires_metadata",
+      "passed": true
+    },
+    {
+      "name": "query_student_assignments",
+      "passed": true
+    },
+    {
+      "name": "query_student_attempts",
+      "passed": true
+    },
+    {
+      "name": "query_student_coach_history",
+      "passed": true
+    },
+    {
+      "name": "query_teacher_assignment_progress",
+      "passed": true
+    },
+    {
+      "name": "teacher_query_is_scoped",
+      "passed": true
+    }
+  ],
+  "not_tested": [
+    "native PostgreSQL server",
+    "backend authorization and scenario rules",
+    "multi-connection concurrency",
+    "LLM calls",
+    "camera recognition"
+  ]
+}

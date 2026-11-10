@@ -1,0 +1,230 @@
+{
+  "scope": "Artifact structure, design consistency and independent numerical examples; NOT camera/LLM/API/PostgreSQL integration",
+  "passed": 54,
+  "checks": [
+    {
+      "name": "nine_editable_pages",
+      "passed": true
+    },
+    {
+      "name": "01-student_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "01-student_edge_references",
+      "passed": true
+    },
+    {
+      "name": "01-student_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "02-teacher_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "02-teacher_edge_references",
+      "passed": true
+    },
+    {
+      "name": "02-teacher_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "03-architecture_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "03-architecture_edge_references",
+      "passed": true
+    },
+    {
+      "name": "03-architecture_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "04-erd-class_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "04-erd-class_edge_references",
+      "passed": true
+    },
+    {
+      "name": "04-erd-class_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "05-erd-learning_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "05-erd-learning_edge_references",
+      "passed": true
+    },
+    {
+      "name": "05-erd-learning_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "06-sequence_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "06-sequence_edge_references",
+      "passed": true
+    },
+    {
+      "name": "06-sequence_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "07-cv-state_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "07-cv-state_edge_references",
+      "passed": true
+    },
+    {
+      "name": "07-cv-state_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "08-cv-coach-data_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "08-cv-coach-data_edge_references",
+      "passed": true
+    },
+    {
+      "name": "08-cv-coach-data_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "09-erd-coach_unique_ids",
+      "passed": true
+    },
+    {
+      "name": "09-erd-coach_edge_references",
+      "passed": true
+    },
+    {
+      "name": "09-erd-coach_svg_parse",
+      "passed": true
+    },
+    {
+      "name": "thirteen_unique_tables",
+      "passed": true
+    },
+    {
+      "name": "one_canonical_schema",
+      "passed": true
+    },
+    {
+      "name": "student_unique_identity",
+      "passed": true
+    },
+    {
+      "name": "prediction_same_session_fk",
+      "passed": true
+    },
+    {
+      "name": "prediction_single_use",
+      "passed": true
+    },
+    {
+      "name": "balanced_example",
+      "passed": true
+    },
+    {
+      "name": "right_down_example",
+      "passed": true
+    },
+    {
+      "name": "mirrored_balance",
+      "passed": true
+    },
+    {
+      "name": "missing_object_rejected",
+      "passed": true
+    },
+    {
+      "name": "same_side_rejected",
+      "passed": true
+    },
+    {
+      "name": "invalid_slot_rejected",
+      "passed": true
+    },
+    {
+      "name": "nine_embedded_diagrams",
+      "passed": true
+    },
+    {
+      "name": "coach_context_snapshot",
+      "passed": true
+    },
+    {
+      "name": "link_database/AI-LifeLab-Database-Toan-du-an.html",
+      "passed": true
+    },
+    {
+      "name": "link_AI-LifeLab-CV-Chat-Flow-Database.html",
+      "passed": true
+    },
+    {
+      "name": "link_AI-LifeLab-System-v2.drawio",
+      "passed": true
+    },
+    {
+      "name": "link_schema-v2.sql",
+      "passed": true
+    },
+    {
+      "name": "link_contracts-v2.json",
+      "passed": true
+    },
+    {
+      "name": "database_link_schema.sql",
+      "passed": true
+    },
+    {
+      "name": "database_link_ERD-Database.drawio",
+      "passed": true
+    },
+    {
+      "name": "database_link_database-validation.json",
+      "passed": true
+    },
+    {
+      "name": "database_link_../AI-LifeLab-Phan-tich-Thiet-ke-v2.html",
+      "passed": true
+    },
+    {
+      "name": "database_link_queries.sql",
+      "passed": true
+    },
+    {
+      "name": "database_link_../diagrams/04-erd-class.svg",
+      "passed": true
+    },
+    {
+      "name": "database_link_../diagrams/05-erd-learning.svg",
+      "passed": true
+    },
+    {
+      "name": "database_link_../diagrams/09-erd-coach.svg",
+      "passed": true
+    }
+  ],
+  "not_tested": [
+    "real camera tracking",
+    "LLM calls",
+    "PostgreSQL execution",
+    "backend/API behavior",
+    "learning outcomes",
+    "native diagrams.net rendering"
+  ]
+}

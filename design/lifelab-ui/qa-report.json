@@ -1,0 +1,307 @@
+{
+  "screens": [
+    {
+      "code": "H01",
+      "title": "Thế giới thật. Lựa chọn của bạn.",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "H02",
+      "title": "Khám phá kịch bản",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "H03",
+      "title": "Giới thiệu và hướng dẫn",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S01",
+      "title": "Chào Minh Anh, hôm nay thử gì?",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S02",
+      "title": "Nhìn lại điều mình đang học",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S03",
+      "title": "Một mục tiêu nhỏ, một bước mới",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S04",
+      "title": "Hành trình đang thành hình",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S05",
+      "title": "Hôm nay bạn muốn khám phá gì?",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S06",
+      "title": "Khi nước bắt đầu dâng",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S07",
+      "title": "Sẵn sàng cho lần thử tiếp theo?",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S08",
+      "title": "Không gian trải nghiệm",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S09",
+      "title": "Lựa chọn của bạn vừa tạo ra điều gì?",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S10",
+      "title": "Dành một trang để nhìn lại.",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "S11",
+      "title": "Bạn vừa đi thêm một bước.",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "T01",
+      "title": "Lớp học đang trải nghiệm thế nào?",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "T02",
+      "title": "Lớp học và những nhiệm vụ",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "T03",
+      "title": "Chọn một trải nghiệm cho lớp",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "T04",
+      "title": "Thiết kế cầu chịu tải",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "T05",
+      "title": "Thiết lập nhiệm vụ cho lớp",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "T06",
+      "title": "Kiểm tra một lần trước khi giao",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "T07",
+      "title": "Theo dõi từng bước của lớp",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "T08",
+      "title": "Minh Anh đã thử như thế nào?",
+      "w": 1440,
+      "h": 1080
+    },
+    {
+      "code": "H01-T",
+      "title": "Thế giới thật. Lựa chọn của bạn. · Tablet",
+      "w": 834,
+      "h": 1380
+    },
+    {
+      "code": "H01-M",
+      "title": "Thế giới thật. Lựa chọn của bạn. · Mobile",
+      "w": 390,
+      "h": 1225
+    },
+    {
+      "code": "S01-T",
+      "title": "Chào Minh Anh, hôm nay thử gì? · Tablet",
+      "w": 834,
+      "h": 1255
+    },
+    {
+      "code": "S01-M",
+      "title": "Chào Minh Anh, hôm nay thử gì? · Mobile",
+      "w": 390,
+      "h": 1220
+    },
+    {
+      "code": "S06-T",
+      "title": "Khi nước bắt đầu dâng · Tablet",
+      "w": 834,
+      "h": 1327
+    },
+    {
+      "code": "S06-M",
+      "title": "Khi nước bắt đầu dâng · Mobile",
+      "w": 390,
+      "h": 1188
+    },
+    {
+      "code": "S08-T",
+      "title": "Không gian trải nghiệm · Tablet",
+      "w": 834,
+      "h": 1375
+    },
+    {
+      "code": "S08-M",
+      "title": "Không gian trải nghiệm · Mobile",
+      "w": 390,
+      "h": 1224
+    },
+    {
+      "code": "S09-T",
+      "title": "Lựa chọn của bạn vừa tạo ra điều gì? · Tablet",
+      "w": 834,
+      "h": 1230
+    },
+    {
+      "code": "S09-M",
+      "title": "Lựa chọn của bạn vừa tạo ra điều gì? · Mobile",
+      "w": 390,
+      "h": 1070
+    },
+    {
+      "code": "S10-T",
+      "title": "Dành một trang để nhìn lại. · Tablet",
+      "w": 834,
+      "h": 1210
+    },
+    {
+      "code": "S10-M",
+      "title": "Dành một trang để nhìn lại. · Mobile",
+      "w": 390,
+      "h": 1210
+    },
+    {
+      "code": "S04-T",
+      "title": "Hành trình đang thành hình · Tablet",
+      "w": 834,
+      "h": 1230
+    },
+    {
+      "code": "S04-M",
+      "title": "Hành trình đang thành hình · Mobile",
+      "w": 390,
+      "h": 1230
+    },
+    {
+      "code": "T01-T",
+      "title": "Lớp học đang trải nghiệm thế nào? · Tablet",
+      "w": 834,
+      "h": 1225
+    },
+    {
+      "code": "T01-M",
+      "title": "Lớp học đang trải nghiệm thế nào? · Mobile",
+      "w": 390,
+      "h": 1225
+    }
+  ],
+  "issues": [],
+  "navigation": [
+    {
+      "from": "H01",
+      "to": "S01",
+      "pass": true
+    },
+    {
+      "from": "S01",
+      "to": "S08",
+      "pass": true
+    },
+    {
+      "from": "S08",
+      "to": "S09",
+      "pass": true
+    },
+    {
+      "from": "S09",
+      "to": "S10",
+      "pass": true
+    },
+    {
+      "from": "S10",
+      "to": "S11",
+      "pass": true
+    },
+    {
+      "from": "T03",
+      "to": "T04",
+      "pass": true
+    },
+    {
+      "from": "T04",
+      "to": "T05",
+      "pass": true
+    },
+    {
+      "from": "T05",
+      "to": "T06",
+      "pass": true
+    },
+    {
+      "from": "T06",
+      "to": "T07",
+      "pass": true
+    },
+    {
+      "from": "T08",
+      "to": "T07",
+      "pass": true
+    },
+    {
+      "from": "S08-M",
+      "to": "S09-M",
+      "pass": true
+    },
+    {
+      "from": "S09-M",
+      "to": "S10-M",
+      "pass": true
+    },
+    {
+      "from": "S08-T",
+      "to": "S09-T",
+      "pass": true
+    },
+    {
+      "from": "S10-T",
+      "to": "S04-T",
+      "pass": true
+    }
+  ],
+  "reflectionPersistence": true,
+  "mobileReflow": true
+}

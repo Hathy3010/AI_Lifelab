@@ -1,0 +1,15 @@
+{
+  "name": "AI LifeLab · Pastel UI & Prototype",
+  "id": "ai-lifelab-local-designer",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}

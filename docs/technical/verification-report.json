@@ -1,0 +1,128 @@
+{
+  "scope": "Design contracts and pure reference calculations; no backend/database/camera/real LLM verified",
+  "passed": 30,
+  "checks": [
+    {
+      "name": "water_50",
+      "passed": true
+    },
+    {
+      "name": "water_60",
+      "passed": true
+    },
+    {
+      "name": "water_70",
+      "passed": true
+    },
+    {
+      "name": "water_80",
+      "passed": true
+    },
+    {
+      "name": "water_domain",
+      "passed": true
+    },
+    {
+      "name": "water_no_fake_results",
+      "passed": true
+    },
+    {
+      "name": "storage_50m3",
+      "passed": true
+    },
+    {
+      "name": "storage_20m3_left",
+      "passed": true
+    },
+    {
+      "name": "storage_budget",
+      "passed": true
+    },
+    {
+      "name": "storage_duplicate",
+      "passed": true
+    },
+    {
+      "name": "weekly_before",
+      "passed": true
+    },
+    {
+      "name": "weekly_after",
+      "passed": true
+    },
+    {
+      "name": "weekly_event_requires_adjustment",
+      "passed": true
+    },
+    {
+      "name": "weekly_minimum",
+      "passed": true
+    },
+    {
+      "name": "energy_baseline",
+      "passed": true
+    },
+    {
+      "name": "energy_reduced",
+      "passed": true
+    },
+    {
+      "name": "energy_domain",
+      "passed": true
+    },
+    {
+      "name": "saving_6months",
+      "passed": true
+    },
+    {
+      "name": "saving_4months",
+      "passed": true
+    },
+    {
+      "name": "saving_after_event",
+      "passed": true
+    },
+    {
+      "name": "saving_zero",
+      "passed": true
+    },
+    {
+      "name": "skill_105min",
+      "passed": true
+    },
+    {
+      "name": "skill_duplicate",
+      "passed": true
+    },
+    {
+      "name": "coach_valid",
+      "passed": true
+    },
+    {
+      "name": "coach_foreign_id",
+      "passed": true
+    },
+    {
+      "name": "feedback_valid",
+      "passed": true
+    },
+    {
+      "name": "feedback_fake_adjustment",
+      "passed": true
+    },
+    {
+      "name": "feedback_duplicate_criterion",
+      "passed": true
+    },
+    {
+      "name": "openapi_unique_operations",
+      "passed": true
+    },
+    {
+      "name": "openapi_cookie_security",
+      "passed": true
+    }
+  ],
+  "openapi_operations": 23,
+  "schemas": 55
+}
